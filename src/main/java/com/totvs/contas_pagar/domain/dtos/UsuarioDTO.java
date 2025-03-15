@@ -39,7 +39,4 @@ public class UsuarioDTO {
 
     @NotNull(groups = OnCreate.class, message = "O cargo é obrigatório")
     private TipoCargoUsuario cargo;
-
-    @Size(groups = {OnCreate.class, OnUpdate.class}, max = 255, message = "A descrição deve ter no máximo 255 caracteres")
-    private String descricao; // Campo opcional com tamanho limitado
 }

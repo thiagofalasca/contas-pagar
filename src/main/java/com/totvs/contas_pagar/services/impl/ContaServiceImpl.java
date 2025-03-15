@@ -102,6 +102,7 @@ public class ContaServiceImpl implements ContaService {
             Optional.ofNullable(contaEntity.getValor()).ifPresent(existingConta::setValor);
             Optional.ofNullable(contaEntity.getDescricao()).ifPresent(existingConta::setDescricao);
             Optional.ofNullable(contaEntity.getSituacao()).ifPresent(existingConta::setSituacao);
+            Optional.ofNullable(contaEntity.getUsuario()).ifPresent(existingConta::setUsuario);
             return this.save(existingConta);
         }).orElseThrow(() -> new ContaNotFoundException("Conta com o id " + id + " não foi encontrada."));
     }
