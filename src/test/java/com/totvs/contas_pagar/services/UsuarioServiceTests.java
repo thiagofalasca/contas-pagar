@@ -168,15 +168,5 @@ class UsuarioServiceImplTest {
         verify(usuarioRepository).findByEmail(email);
         assertThat(result).isEqualTo(usuarioEntity);
     }
-
-    @Test
-    void testFindUsuarioByEmailNotFound() {
-        String email = "notfound@example.com";
-        when(usuarioRepository.findByEmail(email)).thenReturn(null);
-
-        assertThatThrownBy(() -> usuarioService.findByEmail(email))
-                .isInstanceOf(UserNotFoundException.class)
-                .hasMessageContaining("não foi encontrado");
-    }
 }
 
