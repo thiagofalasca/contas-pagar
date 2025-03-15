@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:15-alpine'
+    container_name: 'db-contas-pagar'
+    environment:
+      - 'POSTGRES_DB=contas-pagar'
+      - 'POSTGRES_PASSWORD=secret-pass!'
+      - 'POSTGRES_USER=admin'
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: 'dpage/pgadmin4'
+    container_name: 'pgadmin-contas-pagar'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'admin@admin.com'
+      PGADMIN_DEFAULT_PASSWORD: 'admin'
+    ports:
+      - "15432:80"

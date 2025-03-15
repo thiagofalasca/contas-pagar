@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: 'contas-pagar'
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/contas-pagar'
+    username: 'admin'
+    password: 'secret-pass!'
+  jpa:
+    properties:
+      hibernate:
+        dialect: 'org.hibernate.dialect.PostgreSQLDialect'
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:secret-key}
