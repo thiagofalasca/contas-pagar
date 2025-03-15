@@ -96,15 +96,11 @@ Você pode acessar o PgAdmin através de [**http://localhost:15432**](http://loc
 
 Para acessar a API, um usuário ADMIN deve ser criado manualmente no banco de dados, pois apenas administradores podem cadastrar novos usuários.
 
-### Dados para criar um usuário ADMIN inicial:
+### Criando um usuário ADMIN inicial no banco de dados:
 
-```json
-{
-    "nome": "Admin",
-    "email": "admin@admin.com",
-    "senha": "$2a$10$yRy9LlDu5BWUick6lb/htuW4QlN3zt1pCUm1PTbfMSek0mQ6fFPQ2",
-    "cargo": "ADMIN"
-}
+```sql
+INSERT INTO usuarios (nome, email, senha, cargo) VALUES 
+('Admin', 'admin@admin.com', '$2a$10$yRy9LlDu5BWUick6lb/htuW4QlN3zt1pCUm1PTbfMSek0mQ6fFPQ2', 'ADMIN');
 ```
 
 🔑 **Observação:** A senha acima é o hash da senha `senha123`.
