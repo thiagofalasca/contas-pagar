@@ -85,7 +85,7 @@ Após inicializar os containers, a API estará disponível em [http://localhost:
 
 ### Acessando o banco de dados (PgAdmin)
 
-Você pode acessar o PgAdmin através de [**http://localhost:15432**](http://localhost:15432) e conectar-se ao banco de dados **db-contas-pagar** usando as seguintes credenciais:
+Você pode acessar o PgAdmin através de [**http://localhost:15432**](http://localhost:15432) (email: admin@admin.com senha: admin) e conectar-se ao banco de dados **db-contas-pagar** usando as seguintes credenciais:
 
 - **Host:** `db-contas-pagar`
 - **Usuário:** `admin`
