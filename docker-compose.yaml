@@ -21,7 +21,7 @@ services:
       - "15432:80"
 
   app:
-    build: .
+    image: 'app-contas-pagar'
     container_name: 'app-contas-pagar'
     ports:
       - "8080:8080"
