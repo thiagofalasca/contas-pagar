@@ -118,9 +118,13 @@ public class ContaController {
                 !contaExistente.getUsuario().getId().equals(securityService.getAuthenticatedUserId())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Acesso negado.");
         }
-        if (securityService.isAdmin() && (contaDTO.getUsuario() == null || contaDTO.getUsuario().getId() == null)) {
+
+        if (!securityService.isAdmin()) {
+            contaDTO.setUsuario(usuarioMapper.mapTo(contaExistente.getUsuario()));
+        } else if (contaDTO.getUsuario() == null || contaDTO.getUsuario().getId() == null) {
             contaDTO.setUsuario(usuarioMapper.mapTo(contaExistente.getUsuario()));
         }
+
         ContaEntity contaEntity = contaMapper.mapFrom(contaDTO);
         ContaEntity contaAtualizada = contaService.fullUpdate(id, contaEntity);
         return ResponseEntity.ok(contaMapper.mapTo(contaAtualizada));
@@ -136,9 +140,13 @@ public class ContaController {
                 !contaExistente.getUsuario().getId().equals(securityService.getAuthenticatedUserId())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Acesso negado.");
         }
-        if (securityService.isAdmin() && (contaDTO.getUsuario() == null || contaDTO.getUsuario().getId() == null)) {
+
+        if (!securityService.isAdmin()) {
+            contaDTO.setUsuario(usuarioMapper.mapTo(contaExistente.getUsuario()));
+        } else if (contaDTO.getUsuario() == null || contaDTO.getUsuario().getId() == null) {
             contaDTO.setUsuario(usuarioMapper.mapTo(contaExistente.getUsuario()));
         }
+
         ContaEntity contaEntity = contaMapper.mapFrom(contaDTO);
         ContaEntity contaAtualizada = contaService.partialUpdate(id, contaEntity);
         return ResponseEntity.ok(contaMapper.mapTo(contaAtualizada));

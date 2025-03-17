@@ -85,7 +85,7 @@ Após inicializar os containers, a API estará disponível em [http://localhost:
 
 ### Acessando o banco de dados (PgAdmin)
 
-Você pode acessar o PgAdmin através de [**http://localhost:15432**](http://localhost:15432) (email: admin@admin.com senha: admin) e conectar-se ao banco de dados **db-contas-pagar** usando as seguintes credenciais:
+Você pode acessar o PgAdmin através de [**http://localhost:15432**](http://localhost:15432) e conectar-se ao banco de dados **db-contas-pagar** usando as seguintes credenciais:
 
 - **Host:** `db-contas-pagar`
 - **Usuário:** `admin`
@@ -96,11 +96,15 @@ Você pode acessar o PgAdmin através de [**http://localhost:15432**](http://loc
 
 Para acessar a API, um usuário ADMIN deve ser criado manualmente no banco de dados, pois apenas administradores podem cadastrar novos usuários.
 
-### Criando um usuário ADMIN inicial no banco de dados:
+### Dados para criar um usuário ADMIN inicial:
 
-```sql
-INSERT INTO usuarios (nome, email, senha, cargo) VALUES 
-('Admin', 'admin@admin.com', '$2a$10$yRy9LlDu5BWUick6lb/htuW4QlN3zt1pCUm1PTbfMSek0mQ6fFPQ2', 'ADMIN');
+```json
+{
+    "nome": "Admin",
+    "email": "admin@admin.com",
+    "senha": "$2a$10$yRy9LlDu5BWUick6lb/htuW4QlN3zt1pCUm1PTbfMSek0mQ6fFPQ2",
+    "cargo": "ADMIN"
+}
 ```
 
 🔑 **Observação:** A senha acima é o hash da senha `senha123`.
