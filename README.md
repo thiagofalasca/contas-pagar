@@ -94,20 +94,14 @@ Você pode acessar o PgAdmin através de [**http://localhost:15432**](http://loc
 
 ## Acesso Inicial
 
-Para acessar a API, um usuário ADMIN deve ser criado manualmente no banco de dados, pois apenas administradores podem cadastrar novos usuários.
+Um usuário ADMIN é criado automaticamente pelo Flyway durante a migração do banco de dados.
 
-### Dados para criar um usuário ADMIN inicial:
+### Credenciais do Administrador Padrão:
 
-```json
-{
-    "nome": "Admin",
-    "email": "admin@admin.com",
-    "senha": "$2a$10$yRy9LlDu5BWUick6lb/htuW4QlN3zt1pCUm1PTbfMSek0mQ6fFPQ2",
-    "cargo": "ADMIN"
-}
-```
+- Email: admin@admin.com
+- Senha: senha123
 
-🔑 **Observação:** A senha acima é o hash da senha `senha123`.
+🔑 **Observação:** Por segurança, recomenda-se alterar a senha do usuário ADMIN após o primeiro acesso.
 
 ## Importação de Contas via CSV
 
@@ -115,7 +109,7 @@ Para importar contas através de um arquivo CSV, ele deve seguir o seguinte form
 
 ```
 dataPagamento;dataVencimento;valor;descricao;situacao
-2024-03-01;2024-03-05;1000.50;Conta de energia;PAGO
+2024-03-01;2024-03-05;1000.50;Conta de energia;PAGA
 2024-03-02;2024-03-10;500.00;Internet;PENDENTE
 ```
 
@@ -123,7 +117,7 @@ dataPagamento;dataVencimento;valor;descricao;situacao
 - ``: Data de vencimento da conta no formato `YYYY-MM-DD`.
 - ``: Valor da conta (ponto decimal como separador).
 - ``: Descrição da conta.
-- ``: Status da conta (`PAGO` ou `PENDENTE`).
+- ``: Status da conta (`PAGA`, `PENDENTE` ou `ATRASADA`).
 
 O upload do arquivo pode ser feito através do endpoint:
 
